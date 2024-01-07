@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Student Registration</title>
+    <style>
+        body{
+            background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+            height: 100vh;
+        }
+        .col-md-4 {
+       background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            margin-top: 100px;
+            padding: 20px;
+            border-radius: 10px;
+            
+        }
+        input{
+            margin: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        p{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin: 10px;
+            padding: 20px;
+        }
+        .container{
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row justify-content-center" >
+        <div class="container justify-content-center">
+            <div class="col-md-4 text-center" >
+                <h1 class="text-center" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Course Registration</h1>
+                <form onsubmit="display();return false">
+                     <input type="text" placeholder="First Name" id="first name"><br>
+                     <input type="text" placeholder="Lat Name" id="last name"><br>
+                     <label>Gender</label>
+                     <input type="radio" name="Gender" value="Male">Male
+                     <input type="radio" name="Gender" value="Female">Female <br>
+                     <label>Select Language</label>
+                     <select id="language">
+                        <option>Java</option>
+                        <option>Python</option>
+                        <option>C++</option>
+                        <option>Ruby</option>
+                        <option>C</option>
+                     </select><br>
+                     <label>Platform</label>
+                     <input type="checkbox" value="online" id="online">online
+                     <input type="checkbox" value="offline" id="offline">offline<br>
+                     <input type="submit" value="Register">
+    
+                </form>
+                
+            </div>
+            <div class="col-md-4 text-center">
+                <h1 class="text-center" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">THE FOLLOWING ARE THE DETAILS</h1>
+                <p id="result"></p>
+            </div> 
+        </div>
+       
+    </div>
+</body>
+</html>
+<script>
+    function display(){
+        var firstname=document.getElementById("first name").value
+    var lastname=document.getElementById("last name").value
+    var l=document.getElementById("language").value
+    var online=document.getElementById("online")
+    var offline=document.getElementById("offline")
+    var genders=document.getElementsByName("Gender")
+    var gender
+    for(var i=0;i<genders.length;i++){
+        if(genders[i].checked){
+            gender=genders[i].value
+        }
+    }
+    var Platform=[]
+    if(online.checked){
+        Platform.push(online.value)
+    }
+    if(offline.checked){
+        Platform.push(offline.value)
+    }
+
+    var result=document.getElementById("result")
+    result.innerHTML="First Name :"+firstname+"<br> Last Name :"+lastname+"<br> Gender :"+gender+"<br> Language :"+l+"<br> Platform :"+Platform+"<br>THANK YOU!"+firstname
+    }
+</script>
+    
